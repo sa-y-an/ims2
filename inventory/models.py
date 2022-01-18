@@ -12,10 +12,9 @@ class Categories(models.Model) :
 
 
 class Attributes(models.Model) :
-    type = models.CharField(max_length=100)
     value = models.CharField(max_length=100)
     def __str__(self) -> str:
-        return self.type + " : " + self.value[:5]
+        return self.value
 
 class Brand(models.Model) :
     name = models.CharField(max_length=100, unique=True)
@@ -40,9 +39,19 @@ class Product(models.Model) :
 
 
 class ProductInventory(models.Model) :
+
+    class Variants(models.IntegerChoices) :
+        pro = 3
+        native = 2
+        lite = 1
+
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     version = models.SlugField(unique=True, max_length=100)
-    attributes = models.ManyToManyField(Attributes, blank=True)
+    # attributes
+    customAttribute = models.ForeignKey(Attributes, on_delete=models.RESTRICT, blank=True, null=True)
+    variant = models.IntegerField(choices=Variants.choices, default=2)   
+
+    # prices
     price = models.IntegerField()
 
     def __str__(self) -> str:
