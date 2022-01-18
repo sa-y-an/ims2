@@ -13,10 +13,8 @@ class Categories(models.Model) :
 class Attributes(models.Model) :
     type = models.CharField(max_length=100, unique=True)
     value = models.SmallIntegerField()
-    description = models.CharField(max_length=155)
-
     def __str__(self) -> str:
-        return self.type
+        return self.type + " : " + self.value[:5]
 
 class Brand(models.Model) :
     name = models.CharField(max_length=100, unique=True)
