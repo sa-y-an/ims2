@@ -6,5 +6,5 @@ from django.db.models import Count
 def categories(request) :
     data = Categories.objects.all().annotate(
     product_count=Count('product'))
-
+    
     return render(request, "frontend/categories.html", {"data": data})

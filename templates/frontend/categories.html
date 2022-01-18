@@ -2,14 +2,24 @@
 
 {% block content %}
     
+    <p>
+        Please select from the following categories. <br/>
+        The number in () indicates the number of products present per category.
+    </p>
 
-    <ul>
+    <ol>
         {% for x in data %}
+        {% if x.product_count %}
         <li>
             <a href="{{x.slug}}">{{x.title}}</a> ({{x.product_count}})
         </li>
+        {% else %}
+        <li>
+            {{x.title}} ({{x.product_count}})
+        </li>
+        {% endif %}
         {% endfor %}
-    </ul>
+    </ol>
 
     
 {% endblock %}
