@@ -1,16 +1,5 @@
-from distutils.command.upload import upload
-from email.policy import default
-from turtle import title
-from unicodedata import category
-import uuid
 from django.db import models
 from datetime import datetime, timedelta
-
-
-from django.contrib.auth.models import AbstractUser
-
-class User(AbstractUser):
-    pass
 
 # Create your models here.
 class Categories(models.Model) :
@@ -23,7 +12,7 @@ class Categories(models.Model) :
 
 class Attributes(models.Model) :
     type = models.CharField(max_length=100, unique=True)
-    value = models.IntegerChoices()
+    value = models.SmallIntegerField()
     description = models.CharField(max_length=155)
 
     def __str__(self) -> str:
@@ -40,10 +29,10 @@ class Product(models.Model) :
     title = models.CharField(max_length=150)
     slug = models.SlugField(unique=True)
     description = models.TextField(max_length=255)
-    image = models.ImageField(upload="images/", default="images/default.png")
+    image = models.ImageField(upload_to ="images/", default="images/default.png")
 
     # foreign keys
-    category = models.ManyToManyField(Categories, on_delete=models.RESTRICT)
+    category = models.ManyToManyField(Categories)
     brand = models.ForeignKey(Brand, on_delete=models.RESTRICT)
 
     def __str__(self) -> str:
@@ -60,7 +49,7 @@ class Stock(models.Model) :
 class ProductInventory(models.Model) :
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     uuid = models.UUIDField(unique=True)
-    attributes = models.ManyToManyField(blank=True, null=True)
+    attributes = models.ManyToManyField(Attributes, blank=True)
     price = models.IntegerField()
     stock = models.OneToOneField(Stock, on_delete=models.CASCADE)
 
