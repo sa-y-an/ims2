@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+
+    <ul>
+        {% for x in data %}
+        <li>
+            <a href="{{x.slug}}">{{x.title}}</a> ({{x.product_count}})
+        </li>
+        {% endfor %}
+    </ul>
+
+    
+{% endblock %}
