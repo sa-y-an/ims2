@@ -1,3 +1,4 @@
+from pickle import TRUE
 from django.db import models
 from datetime import datetime, timedelta
 
@@ -11,8 +12,8 @@ class Categories(models.Model) :
 
 
 class Attributes(models.Model) :
-    type = models.CharField(max_length=100, unique=True)
-    value = models.SmallIntegerField()
+    type = models.CharField(max_length=100)
+    value = models.CharField(max_length=100)
     def __str__(self) -> str:
         return self.type + " : " + self.value[:5]
 
@@ -37,19 +38,24 @@ class Product(models.Model) :
         return self.title
 
 
+
+class ProductInventory(models.Model) :
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    version = models.SlugField(unique=True, max_length=100)
+    attributes = models.ManyToManyField(Attributes, blank=True)
+    price = models.IntegerField()
+
+    def __str__(self) -> str:
+        return self.version
+
+
 class Stock(models.Model) :
     stock = models.IntegerField()
     sold = models.IntegerField()
     debit = models.DateTimeField(default=datetime.utcnow()+timedelta(hours=5.5))
     credit = models.DateTimeField(default=datetime.utcnow()+timedelta(hours=5.5))
-
-
-class ProductInventory(models.Model) :
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    uuid = models.UUIDField(unique=True)
-    attributes = models.ManyToManyField(Attributes, blank=True)
-    price = models.IntegerField()
-    stock = models.OneToOneField(Stock, on_delete=models.CASCADE)
+    inventory = models.OneToOneField(ProductInventory, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self) -> str:
-        return self.uuid
+        return self.inventory.version + "," + str(self.stock) + "," + str(self.sold)
+
