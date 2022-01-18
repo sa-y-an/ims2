@@ -11,10 +11,10 @@
         {% for x in data %}
         {% if x.product_count %}
         <li>
-            <a href="{{x.slug}}">{{x.title}}</a> ({{x.product_count}})
+            <a href="{% url 'frontend:productPage' x.slug %}">{{x.title}}</a> ({{x.product_count}})
         </li>
         {% else %}
-        <li>
+        <li class="text-muted">
             {{x.title}} ({{x.product_count}})
         </li>
         {% endif %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+
+<div class="container">
+
+<h3 align="center">
+    {{catData.title}}
+</h3>
+
+
+{% for x in data %}
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{x.image.url}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{x.title}}</h5>
+      <p class="card-text">{{x.description}}</p>
+      
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+
+    </div>
+</div>
+
+{% endfor %}
+
+</div>
+
+
+
+    
+{% endblock %}

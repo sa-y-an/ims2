@@ -1,6 +1,8 @@
+from unicodedata import category
 from django.shortcuts import render
-from inventory.models import Categories
+from inventory.models import Categories, Product
 from django.db.models import Count
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 def categoriesList(request) :
@@ -9,4 +11,7 @@ def categoriesList(request) :
 
     return render(request, "frontend/categories.html", {"data": data})
 
-# def 
+def productPage(request, slug) :
+    data = Product.objects.filter(category__slug = slug)
+    catData = get_object_or_404(Categories , slug = slug)
+    return render(request,"frontend/catprods.html",{"data":data,"catData":catData})
