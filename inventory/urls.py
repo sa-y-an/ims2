@@ -21,4 +21,12 @@ urlpatterns = [
     path('brand/add/', BrandCreateView.as_view(template_name = "inventory/createview.html"), name='brand-add'),
     path('brand/<int:pk>/', BrandUpdateView.as_view(template_name = "inventory/createview.html"), name='brand-update'),
     path('brand/<int:pk>/delete/', BrandDeleteView.as_view(template_name = "inventory/deleteview.html"), name='brand-delete'),
+
+    # attribute (atb)
+
+    path('atb-list', AtbList.as_view(template_name="inventory/atb-list.html"), name="atb-list"),
+    path('atb/add/', AtbCreateView.as_view(template_name = "inventory/createview.html"), name='atb-add'),
+    path('atb/<int:pk>/', AtbUpdateView.as_view(template_name = "inventory/createview.html"), name='atb-update'),
+    path('atb/<int:pk>/delete/', AtbDeleteView.as_view(template_name = "inventory/deleteview.html"), name='atb-delete'),
+
 ]

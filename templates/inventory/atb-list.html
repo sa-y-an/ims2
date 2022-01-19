@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    
+<a href="{% url 'inventory:atb-add' %}" class="btn btn-primary">
+    Create a new Attribute
+</a>
+
+<br>
+<hr>
+
+Already Created Objects are - 
+<br> 
+<p>
+    To delete a attribute make sure all the product using it is deleted else you will recieve error !
+</p>
+
+<ul>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Attribute</th>
+            <th scope="col">View</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for object in object_list %}
+          <tr>
+            <th scope="row">{{object.value}}</th>
+            <td>
+                <a href="{% url 'inventory:atb-update' object.id %}" >
+                    edit
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'inventory:atb-delete' object.id %}">
+                    delete
+                </a>
+            </td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+    </table>
+      
+
+</ul>
+
+
+{% endblock %}
+

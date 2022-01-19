@@ -57,4 +57,30 @@ class BrandDeleteView(DeleteView):
     success_url = reverse_lazy('inventory:brand-list')
 
 
-# 
+# Attribute
+
+
+class AtbList(ListView) :
+    model = Attributes
+
+
+class AtbCreateView(CreateView):
+    model = Attributes
+    fields = '__all__'
+    success_url = reverse_lazy('inventory:atb-list')
+
+class AtbCreateView(CreateView):
+    model = Attributes
+    fields = '__all__'
+    success_url = reverse_lazy('inventory:atb-list')
+
+
+class AtbUpdateView(UpdateView):
+    model = Attributes
+    fields = '__all__'
+    success_url = reverse_lazy('inventory:atb-list')
+
+class AtbDeleteView(DeleteView):
+    model = Attributes
+    success_url = reverse_lazy('inventory:atb-list')
+
