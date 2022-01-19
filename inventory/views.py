@@ -23,11 +23,6 @@ class CategoryCreateView(CreateView):
     fields = '__all__'
     success_url = reverse_lazy('inventory:cat-list')
 
-
-class PostCreateView(CreateView):
-    model = Product
-    fields = []
-
 class CategoryUpdateView(UpdateView):
     model = Categories
     fields = '__all__'
@@ -36,3 +31,33 @@ class CategoryUpdateView(UpdateView):
 class CategoryDeleteView(DeleteView):
     model = Categories
     success_url = reverse_lazy('inventory:cat-list')
+
+
+# brand
+
+
+class BrandList(ListView) :
+    model = Brand
+
+
+class BrandCreateView(CreateView):
+    model = Brand
+    fields = '__all__'
+    success_url = reverse_lazy('inventory:brand-list')
+
+class BrandCreateView(CreateView):
+    model = Brand
+    fields = '__all__'
+    success_url = reverse_lazy('inventory:brand-list')
+
+
+class BrandUpdateView(UpdateView):
+    model = Brand
+    fields = '__all__'
+    success_url = reverse_lazy('inventory:brand-list')
+
+class BrandDeleteView(DeleteView):
+    model = Brand
+    success_url = reverse_lazy('inventory:brand-list')
+
+

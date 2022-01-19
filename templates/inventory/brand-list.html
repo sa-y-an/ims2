@@ -3,8 +3,8 @@
 {% block content %}
 
     
-<a href="{% url 'inventory:cat-add' %}" class="btn btn-primary">
-    Create a new category
+<a href="{% url 'inventory:brand-add' %}" class="btn btn-primary">
+    Create a new brand
 </a>
 
 <br>
@@ -17,7 +17,7 @@ Already Created Objects are -
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">Title</th>
+            <th scope="col">Name</th>
             <th scope="col">View</th>
             <th scope="col">Delete</th>
           </tr>
@@ -25,14 +25,14 @@ Already Created Objects are -
         <tbody>
         {% for object in object_list %}
           <tr>
-            <th scope="row">{{object.title}}</th>
+            <th scope="row">{{object.name}}</th>
             <td>
-                <a href="{% url 'inventory:cat-update' object.id %}" >
+                <a href="{% url 'inventory:brand-update' object.id %}" >
                     edit
                 </a>
             </td>
             <td>
-                <a href="{% url 'inventory:cat-delete' object.id %}">
+                <a href="{% url 'inventory:brand-delete' object.id %}">
                     delete
                 </a>
             </td>

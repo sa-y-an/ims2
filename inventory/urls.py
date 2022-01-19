@@ -15,5 +15,10 @@ urlpatterns = [
     path('category/<int:pk>/', CategoryUpdateView.as_view(template_name = "inventory/createview.html"), name='cat-update'),
     path('category/<int:pk>/delete/', CategoryDeleteView.as_view(template_name = "inventory/deleteview.html"), name='cat-delete'),
 
-    # product
+    # brand
+
+    path('brand-list', BrandList.as_view(template_name="inventory/brand-list.html"), name="brand-list"),
+    path('brand/add/', BrandCreateView.as_view(template_name = "inventory/createview.html"), name='brand-add'),
+    path('brand/<int:pk>/', BrandUpdateView.as_view(template_name = "inventory/createview.html"), name='brand-update'),
+    path('brand/<int:pk>/delete/', BrandDeleteView.as_view(template_name = "inventory/deleteview.html"), name='brand-delete'),
 ]
