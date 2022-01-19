@@ -18,5 +18,13 @@ With Postgress
 ```
 docker-compose build
 docker-compose up
+```
+To run migrations use  (only run once at the start)
+- Use 
+```
 docker exec -it django_container /bin/bash
+```
+It opens an interative shell where do - 
+```
+python3 manage.py migrate
 ```
