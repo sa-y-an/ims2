@@ -1,15 +1,37 @@
 {% extends 'base.html' %}
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'frontend/inventory.css' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+
 
 <div class="container">
+
     {% block content %}
         <h1>
             {{data.product.title}}
         </h1>
+        <br>
 
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{data.product.image.url}}" alt="Card image cap">
-            
+        <div class="container box">
+            <div class="left">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{data.product.image.url}}" alt="Card image cap">            
+                </div>
+            </div>
+            <div class="right">
+
+                <div class="container text-center">
+                    <h3>
+                        Specification
+                    </h3>
+                </div>
+                {{product.category}}
+            </div>
         </div>
 
     {% endblock %}
+
 </div>

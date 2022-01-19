@@ -4,9 +4,16 @@ from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from django.conf import settings
 
+from django.urls import re_path
+from django.views.static import serve
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('frontend.urls'), name="frontend")
+    path('',include('frontend.urls'), name="frontend"),
+
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
 ]
 
 

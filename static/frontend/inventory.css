@@ -1,0 +1,10 @@
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+    border: 2px black;
+}
+
+body{
+    background: black;
+}
