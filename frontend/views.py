@@ -23,7 +23,7 @@ def inventories(request,slug) :
 
 def listProduct(request):
     data = Product.objects.all()
-    return render(request,"frontend/catProds.html",{"data":data})
+    return render(request,"frontend/catprods.html",{"data":data})
 
 def inventory(request,slug) :
     data = get_object_or_404(ProductInventory,version=slug)
