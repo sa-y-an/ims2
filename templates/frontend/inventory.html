@@ -9,15 +9,21 @@
 {% block content %}
 <div class="container">
 
-        <h1>
+        <h3 align="center">
             {{data.product.title}}
-        </h1>
-        <br>
+        </h3>
+        <p align="center">
+            {{data.version}}
+        </p>
+
+        <br/>
+
+        {{data.product.category}}
 
         <div class="container box">
             <div class="left">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{data.product.image.url}}" alt="Card image cap">            
+                <div class="card">
+                    <img class="card-img-top" src="{{data.product.image.url}}" alt="{{product.version}}">            
                 </div>
             </div>
             <div class="right">
@@ -26,6 +32,9 @@
                     <h3>
                         Specification
                     </h3>
+
+
+
                 </div>
                 {{product.category}}
             </div>
