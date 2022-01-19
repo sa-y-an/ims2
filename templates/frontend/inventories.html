@@ -2,6 +2,7 @@
 
 {% block content %}
 
+{% if data %}
 <p>
     Choose from the following variants of the product {{product}}
 </p>
@@ -39,6 +40,10 @@
 
 </div>
     
+{% else %}
 
+No inventory exist for the selected product, please visit later.
+
+{% endif %}
 
 {% endblock %}
