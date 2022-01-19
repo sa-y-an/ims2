@@ -84,3 +84,31 @@ class AtbDeleteView(DeleteView):
     model = Attributes
     success_url = reverse_lazy('inventory:atb-list')
 
+
+# products (prod)
+
+
+class ProdList(ListView) :
+    model = Product
+
+
+class ProdCreateView(CreateView):
+    model = Product
+    fields = '__all__'
+    success_url = reverse_lazy('inventory:prod-list')
+
+class ProdCreateView(CreateView):
+    model = Product
+    fields = '__all__'
+    success_url = reverse_lazy('inventory:prod-list')
+
+
+class ProdUpdateView(UpdateView):
+    model = Product
+    fields = '__all__'
+    success_url = reverse_lazy('inventory:prod-list')
+
+class ProdDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy('inventory:prod-list')
+

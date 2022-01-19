@@ -29,4 +29,11 @@ urlpatterns = [
     path('atb/<int:pk>/', AtbUpdateView.as_view(template_name = "inventory/createview.html"), name='atb-update'),
     path('atb/<int:pk>/delete/', AtbDeleteView.as_view(template_name = "inventory/deleteview.html"), name='atb-delete'),
 
+    # products 
+
+    path('prod-list', ProdList.as_view(template_name="inventory/prod-list.html"), name="prod-list"),
+    path('prod/add/', ProdCreateView.as_view(template_name = "inventory/createview.html"), name='prod-add'),
+    path('prod/<int:pk>/', ProdUpdateView.as_view(template_name = "inventory/createview.html"), name='prod-update'),
+    path('prod/<int:pk>/delete/', ProdDeleteView.as_view(template_name = "inventory/deleteview.html"), name='prod-delete'),
+
 ]
