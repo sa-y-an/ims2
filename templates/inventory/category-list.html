@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    
+<a href="{% url 'inventory:cat-add' %}" class="btn btn-primary">
+    Create a new object
+</a>
+
+<br>
+<hr>
+
+Already Created Objects are - 
+
+<ul>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">View</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for object in object_list %}
+          <tr>
+            <th scope="row">{{object.title}}</th>
+            <td>
+                <a href="{% url 'inventory:cat-update' object.id %}" >
+                    edit
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'inventory:cat-delete' object.id %}">
+                    delete
+                </a>
+            </td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+    </table>
+      
+
+</ul>
+
+
+{% endblock %}
+
