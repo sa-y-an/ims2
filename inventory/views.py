@@ -5,10 +5,6 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 
 
-# Create your views here.
-
-# category views 
-
 class CategoryList(ListView) :
     model = Categories
 
@@ -61,3 +57,4 @@ class BrandDeleteView(DeleteView):
     success_url = reverse_lazy('inventory:brand-list')
 
 
+# 
