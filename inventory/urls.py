@@ -7,5 +7,5 @@ from .  import views
 app_name = "inventory"
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name =  'inventory/index.html') , name="home"),
+    path('', TemplateView.as_view(template_name =  'inventory/index.html') , name="index"),
 ]
