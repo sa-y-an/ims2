@@ -3,6 +3,7 @@
 {% block content %}
     
 
+{% if data %}
 <div class="container">
 
 {% if catData %}
@@ -37,5 +38,8 @@
 
   
 </div>
-    
+{% else %}
+Please add some products to list some products here
+{% endif %}
+
 {% endblock %}
