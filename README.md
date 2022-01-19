@@ -1,6 +1,6 @@
 # IMS
 - Inventory Management System
-- Live Demo can be found at -  (please allow sometime, while loading the first time, the heroku containers might wake up from a deep sleep after a long time).
+- Live Demo can be found at - https://shopify-ims.herokuapp.com/ (please allow sometime, while loading the first time, the heroku containers might wake up from a deep sleep after a long time).
 
 ### Installation Instructions
 
@@ -16,7 +16,7 @@ Now run the following commands -
 docker-compose --env-file ./core/.env up
 ```
 Once it runs and the terminal reads ```Quit the server with CONTROL-C.``` 
-```
+
 - your server starts running 
 
 - Now create a new terminal and run the migrations only once at the start or anytime you change the models using- 
