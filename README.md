@@ -41,5 +41,5 @@ python3 manage.py migrate
 ### Features 
 
 - Basic CRUD
-- Product belongs categories and multiple variants of a product
+- Product groupped into categories and multiple variants of a product
 - Image Thumbnail generation of an uploaded image automatically 
