@@ -1,4 +1,10 @@
-# Inventory Management System
+# IMS
+- IMS that scales to the moon 
+- Build using Elastic Search, Docker-Compose, Postgress and Django
+
+Pending work 
+- Use redis and celery for caching
+
 
 Instuctions 
 
