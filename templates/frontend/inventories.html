@@ -24,7 +24,7 @@
 
         <tr>
             <td> 
-                <a href="{{ product.version }}">  
+                <a href="{% url 'frontend:inventory' product.version %}">  
                 {{ product.version }} </a> 
             </td>
             <td> {{ product.get_variant_display }} </td>

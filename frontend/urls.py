@@ -9,6 +9,9 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name =  'frontend/index.html') ),
     path("categories/", views.categoriesList , name = "categories-list" ),
 
-    path("categories/<str:slug>", views.productPage, name="productPage"),
+    path("product/<str:slug>", views.productPage, name="productPage"),
     path("inventories/<str:slug>", views.inventories, name="inventories"),
+
+    path("product/", views.listProduct, name="list-product"),
+    path("product/version/<str:slug>", views.inventory, name="inventory"),
 ]

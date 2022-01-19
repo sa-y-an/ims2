@@ -1,3 +1,4 @@
+from curses.panel import version
 from unicodedata import category
 from django.shortcuts import render
 from inventory.models import Categories, Product, ProductInventory
@@ -19,3 +20,11 @@ def productPage(request, slug) :
 def inventories(request,slug) :
     data = ProductInventory.objects.filter(product__slug = slug)
     return render(request, "frontend/inventories.html",{"data":data})
+
+def listProduct(request):
+    data = Product.objects.all()
+    return render(request,"frontend/catProds.html",{"data":data})
+
+def inventory(request,slug) :
+    data = get_object_or_404(ProductInventory,version=slug)
+    return render(request,"frontend/inventory.html")

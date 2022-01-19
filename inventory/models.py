@@ -61,8 +61,8 @@ class ProductInventory(models.Model) :
 class Stock(models.Model) :
     stock = models.IntegerField()
     sold = models.IntegerField()
-    debit = models.DateTimeField(default=datetime.utcnow()+timedelta(hours=5.5))
-    credit = models.DateTimeField(default=datetime.utcnow()+timedelta(hours=5.5))
+    debitDate = models.DateTimeField(default=datetime.utcnow()+timedelta(hours=5.5))
+    creditDate = models.DateTimeField(default=datetime.utcnow()+timedelta(hours=5.5))
     inventory = models.OneToOneField(ProductInventory, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self) -> str:
