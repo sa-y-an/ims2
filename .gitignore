@@ -4,6 +4,8 @@ myenv
 *.log
 *.pot
 *.pyc
+*.env.dev
+*.env.prod
 __pycache__/
 local_settings.py
 db.sqlite3
