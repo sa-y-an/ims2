@@ -18,7 +18,9 @@
 
         <br/>
 
-        {{categories}}
+        <h2>
+            Specifications
+        </h2>
 
         <div class="container box">
             <div class="left">
@@ -29,11 +31,17 @@
             <div class="right">
 
                 <div class="container text-center">
-                    <h3>
-                        Specification
-                    </h3>
+                    
+                    <br>
+                    <div class="container">
+                        {% for category in categories %}
+                        <a href="{% url 'frontend:productPage' category.slug %}" class="btn btn-primary"> 
+                            {{category.title}} </a>
+                        {% endfor %}
+                    </div>
+                    
 
-
+                    
 
                 </div>
                 {{product.category}}
