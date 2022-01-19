@@ -6,5 +6,6 @@ django-crispy-forms==1.13.0
 django-imagekit==4.1.0
 pilkit==2.0
 Pillow==9.0.0
+psycopg2-binary==2.9.3
 six==1.16.0
 sqlparse==0.4.2
