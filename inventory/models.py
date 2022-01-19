@@ -1,6 +1,7 @@
 from pickle import TRUE
 from django.db import models
 from datetime import datetime, timedelta
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 class Categories(models.Model) :
@@ -57,8 +58,17 @@ class ProductInventory(models.Model) :
     # stock
     stock = models.IntegerField(default=0)
     sold = models.IntegerField(default=0)
-    debitDate = models.DateTimeField(default=datetime.utcnow()+timedelta(hours=5.5))
-    creditDate = models.DateTimeField(default=datetime.utcnow()+timedelta(hours=5.5))
+    debitDate = models.DateTimeField(default=datetime.utcnow()+timedelta(hours=5.5), 
+    help_text=_(
+        "format: required, YYYY-MM-DD HH:MN:SC (2022-01-19 17:29:19) "
+    ),
+
+    )
+    creditDate = models.DateTimeField(default=datetime.utcnow()+timedelta(hours=5.5),
+    help_text=_(
+    "format: required, YYYY-MM-DD HH:MN:SC (2022-01-19 17:29:19) "
+    ),
+    )
 
 
     def __str__(self) -> str:

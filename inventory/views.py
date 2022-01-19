@@ -112,3 +112,31 @@ class ProdDeleteView(DeleteView):
     model = Product
     success_url = reverse_lazy('inventory:prod-list')
 
+
+# inventories
+
+
+
+class InvList(ListView) :
+    model = ProductInventory
+
+
+class InvCreateView(CreateView):
+    model = ProductInventory
+    fields = '__all__'
+    success_url = reverse_lazy('inventory:inv-list')
+
+class InvCreateView(CreateView):
+    model = ProductInventory
+    fields = '__all__'
+    success_url = reverse_lazy('inventory:inv-list')
+
+
+class InvUpdateView(UpdateView):
+    model = ProductInventory
+    fields = '__all__'
+    success_url = reverse_lazy('inventory:inv-list')
+
+class InvDeleteView(DeleteView):
+    model = ProductInventory
+    success_url = reverse_lazy('inventory:inv-list')
