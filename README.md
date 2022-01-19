@@ -1,36 +1,44 @@
 # IMS
-- IMS that scales to the moon 
-- Build using Elastic Search, Docker-Compose, Postgress and Django
+- Inventory Management System
 
-Pending work 
-- Use redis and celery for caching
+### Installation Instructions
 
+#### Pre-requisites
+- Please install [docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/) for installation as this project uses multiple dependencies
+- If you use docker as a non-root user please run the commands as sudo or [set up docker as a non root user](https://docs.docker.com/engine/install/linux-postinstall/)
 
-Instuctions 
+- Once docker is installed create a ```.env``` in the ```core directory``` 
+- Fill its content using .example.env file
 
-- If you use docker as a non-root user please run the commands as sudo
-
-- Run Docker
+Now run the following commands - 
 ```sh
-docker build --tag python-django .
-docker run --publish 8000:8000 python-django
+docker-compose --env-file ./core/.env up
 ```
-- Run docker-compose 
-```sh
-docker-compose up
+Once it runs and the terminal reads ```Quit the server with CONTROL-C.``` 
 ```
+- your server starts running 
 
-With Postgress
-```sh
-docker-compose build
-docker-compose up
-```
-To run migrations use  (only run once at the start)
-- Use 
+- Now create a new terminal and run the migrations only once at the start or anytime you change the models using- 
 ```sh
 docker exec -it django_container /bin/bash
 ```
-It opens an interative shell where do - 
+It opens an interative shell where you can migrate using - 
 ```sh
 python3 manage.py migrate
 ```
+- You app is now ready 
+- Navigate to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to see the magic
+
+### Usage Guides 
+
+- create a category 
+- create a brand 
+- create the attributes 
+- create the product
+- now create its inventory
+
+### Features 
+
+- Basic CRUD
+- Product belongs categories and multiple variants of a product
+- Image Thumbnail generation of an uploaded image automatically 
