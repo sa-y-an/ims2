@@ -1,6 +1,9 @@
 # Inventory Management System
 
 Instuctions 
+
+- If you use docker as a non-root user please run the commands as sudo
+
 - Run Docker
 ```sh
 docker build --tag python-django .
