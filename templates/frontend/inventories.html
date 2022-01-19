@@ -6,16 +6,39 @@
     Choose from the following variants of the product {{product}}
 </p>
 
-{% for product in data %}
+<div class="container">
 
-    <div class="container">
-        {{ product.variant }}
-        {{ product.customAttribute }}
-        {{ product.version }}
-        {{ product.price }}
-    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Version </th>
+            <th scope="col">Variant</th>
+            <th scope="col">Custom Attribute</th>
+            <th scope="col">Price </th>
+        </tr>
+        </thead>
+        <tbody>
+
+            {% for product in data %}
+            
+
+        <tr>
+            <td> 
+                <a href="{{ product.version }}">  
+                {{ product.version }} </a> 
+            </td>
+            <td> {{ product.get_variant_display }} </td>
+            <td> {{ product.customAttribute }} </td>
+            <td> $ {{ product.price }}  </td>
+        </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
     
 
-{% endfor %}
 
 {% endblock %}
