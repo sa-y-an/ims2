@@ -10,3 +10,10 @@ docker run --publish 8000:8000 python-django
 ```sh
 docker-compose up
 ```
+
+With Postgress
+```
+docker-compose build
+docker-compose up
+docker exec -it django_container /bin/bash
+```
