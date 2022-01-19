@@ -27,5 +27,6 @@ def listProduct(request):
 
 def inventory(request,slug) :
     data = get_object_or_404(ProductInventory,version=slug)
-    # print(data.product.category__set_all)
-    return render(request,"frontend/inventory.html", {"data":data})
+    # print(data.product.slug)
+    categories = Categories.objects.filter(product__slug = data.product.slug)
+    return render(request,"frontend/inventory.html", {"data":data, "categories":categories})
