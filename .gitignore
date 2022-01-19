@@ -4,6 +4,8 @@ myenv
 *.log
 *.pot
 *.pyc
+*myenv
+.env
 *.env.dev
 *.env.prod
 __pycache__/
