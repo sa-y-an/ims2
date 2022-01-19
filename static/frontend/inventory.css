@@ -2,9 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     background-color: antiquewhite;
-    border: 2px black;
+    padding: 1em;
 }
 
-body{
-    background: black;
-}
