@@ -8,4 +8,5 @@ app_name = "inventory"
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name =  'inventory/index.html') , name="index"),
+    path('category-list', views.categorylist)
 ]
