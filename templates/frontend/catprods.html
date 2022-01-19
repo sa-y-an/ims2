@@ -16,7 +16,12 @@
     {% for x in data %}
 
     <div class="card text-center" style="width: 18rem;">
+        {% if x.image_thumbnail %}
+        <img class="card-img-top" src="{{x.image_thumbnail.url}}" alt="Card image cap">
+        {% else %}
         <img class="card-img-top" src="{{x.image.url}}" alt="Card image cap">
+        {% endif %}
+
         <div class="card-body">
           <h5 class="card-title">{{x.title}}</h5>
           <p class="card-text">{{x.description}}</p>

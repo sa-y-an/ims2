@@ -2,6 +2,8 @@ from pickle import TRUE
 from django.db import models
 from datetime import datetime, timedelta
 from django.utils.translation import gettext_lazy as _
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 
 # Create your models here.
 class Categories(models.Model) :
@@ -29,6 +31,12 @@ class Product(models.Model) :
     slug = models.SlugField(unique=True)
     description = models.TextField(max_length=255)
     image = models.ImageField(upload_to ="images/", default="images/default.png")
+    # thumbnail
+    image_thumbnail = ImageSpecField(source='image',
+                                      processors=[ResizeToFill(100, 100)],
+                                      format='JPEG',
+                                      options={'quality': 60})
+
 
     # foreign keys
     category = models.ManyToManyField(Categories)

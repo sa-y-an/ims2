@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     'frontend',
 
     # external
-    'crispy_forms'
+    'crispy_forms',
+    'imagekit',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
