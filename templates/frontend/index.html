@@ -1,4 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-    Welcome
+    Welcome to Inventory Management System 
+    <br/>
+
+
+    <ul>
+        <li>
+            Please find the available <a href="{% url 'frontend:list-products' %}"> products </a>
+        </li>
+        <li>
+            Or explore the <a href="{% url 'frontend:categories-list' %}"> categories </a>
+            
+        </li>
+        <li>
+            or <a href="{% url 'inventory:index' %}">add/delete/update</a> an item from our database.
+        </li>
+
+    </ul>
+
+
 {% endblock %}

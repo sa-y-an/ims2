@@ -11,24 +11,26 @@
 </h3>
 {% endif %}
 
-{% for x in data %}
+<div class="container text-center">
 
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="{{x.image.url}}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{x.title}}</h5>
-      <p class="card-text">{{x.description}}</p>
-      <!-- <a href="{{x.slug}}">HI</a> -->
-      <a href="{% url 'frontend:inventories' x.slug %}" class="btn btn-primary">details</a>
+    {% for x in data %}
 
+    <div class="card text-center" style="width: 18rem;">
+        <img class="card-img-top" src="{{x.image.url}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{x.title}}</h5>
+          <p class="card-text">{{x.description}}</p>
+          <!-- <a href="{{x.slug}}">HI</a> -->
+          <a href="{% url 'frontend:inventories' x.slug %}" class="btn btn-primary">details</a>
+          <hr>
+          Product by {{x.brand}}
+        </div>
     </div>
+    <br>
+
+    {% endfor %}
+
+  
 </div>
-
-{% endfor %}
-
-</div>
-
-
-
     
 {% endblock %}
