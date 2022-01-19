@@ -27,4 +27,4 @@ def listProduct(request):
 
 def inventory(request,slug) :
     data = get_object_or_404(ProductInventory,version=slug)
-    return render(request,"frontend/inventory.html")
+    return render(request,"frontend/inventory.html", {"data":data})
