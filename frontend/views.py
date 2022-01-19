@@ -1,6 +1,6 @@
 from unicodedata import category
 from django.shortcuts import render
-from inventory.models import Categories, Product
+from inventory.models import Categories, Product, ProductInventory
 from django.db.models import Count
 from django.shortcuts import get_object_or_404
 
@@ -15,3 +15,7 @@ def productPage(request, slug) :
     data = Product.objects.filter(category__slug = slug)
     catData = get_object_or_404(Categories , slug = slug)
     return render(request,"frontend/catprods.html",{"data":data,"catData":catData})
+
+def inventories(request,slug) :
+    data = ProductInventory.objects.filter(product__slug = slug)
+    return render(request, "frontend/inventories.html",{"data":data})

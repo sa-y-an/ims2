@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>
+    Choose from the following variants of the product {{product}}
+</p>
+
+{% for product in data %}
+
+    <div class="container">
+        {{ product.variant }}
+        {{ product.customAttribute }}
+        {{ product.version }}
+        {{ product.price }}
+    </div>
+    
+
+{% endfor %}
+
+{% endblock %}

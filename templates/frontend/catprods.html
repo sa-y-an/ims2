@@ -5,10 +5,11 @@
 
 <div class="container">
 
+{% if catData %}
 <h3 align="center">
     {{catData.title}}
 </h3>
-
+{% endif %}
 
 {% for x in data %}
 
@@ -17,8 +18,8 @@
     <div class="card-body">
       <h5 class="card-title">{{x.title}}</h5>
       <p class="card-text">{{x.description}}</p>
-      
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <!-- <a href="{{x.slug}}">HI</a> -->
+      <a href="{% url 'frontend:inventories' x.slug %}" class="btn btn-primary">details</a>
 
     </div>
 </div>
