@@ -3,9 +3,15 @@
     flex-wrap: wrap;
     background-color: antiquewhite;
     padding: 1em;
+    border-radius: 1em;
+
 }
 
 img{
     height: 20vh;
     width: 20vh;
+}
+
+.right ,.left{
+    padding: 2em;
 }

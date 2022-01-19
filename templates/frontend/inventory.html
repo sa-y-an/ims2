@@ -30,23 +30,53 @@
             </div>
             <div class="right">
 
-                <div class="container text-center">
+                <div class="container inside">
                     
+                    <button class="btn btn-info">{{data.get_variant_display}}</button>
                     <br>
+ 
+                    <h6>Attributes </h6> 
+                    <ul>
+                        <li>
+                            Version - {{data.version}}
+                        </li>
+                        <li>
+                            Custom Attribute - {{data.customAttribute}}
+                        </li>
+                    </ul>
+                   
+                    <button class="btn btn-danger">Price - $ {{data.price}}</button>
+                    <hr>
+                    <h6>
+                        Stock Information
+                    </h6>
+                    
+                    <ul>
+                        <li>
+                            Sold - {{data.stock.sold}}
+                        </li>
+                        <li> In Stock - {{data.stock.stock }} </li>
+                        <li> Last Credit on - {{data.stock.creditDate}} </li>
+                        <li> Last Debited on - {{data.stock.debitDate}}</li>
+                        
+                    </ul>
+
+                    <hr>
+                    <h6>
+                        Related Categories
+                    </h6>
+
                     <div class="container">
                         {% for category in categories %}
                         <a href="{% url 'frontend:productPage' category.slug %}" class="btn btn-primary"> 
                             {{category.title}} </a>
                         {% endfor %}
                     </div>
-                    
-
-                    
-
                 </div>
-                {{product.category}}
             </div>
         </div>
+
+        <br>
 
 
 </div>
