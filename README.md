@@ -1,5 +1,6 @@
 # IMS
 - Inventory Management System
+- Live Demo can be found at -  (please allow sometime, while loading the first time, the heroku containers might wake up from a deep sleep after a long time).
 
 ### Installation Instructions
 
